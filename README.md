@@ -1,50 +1,35 @@
-# Welcome to your Expo app 👋
+# Plan30 - Your 30-Day Life Challenge 🚀
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Welcome to **Plan30**, the ultimate app to help you complete your 30-day life challenge! 💪 Whether you’re working on building a new habit, accomplishing personal goals, or just taking a deeper dive into your daily routine, Plan30 is here to guide you. 📅
 
-## Get started
+## 📱 Features
 
-1. Install dependencies
+- **Add Daily Tasks**: Easily create and manage daily tasks for your 30-day challenge.
+- **Track Your Progress**: Mark tasks as complete and see your daily progress.
+- **Detailed Analytics**: Review detailed analysis and explanations to reflect on your journey.
+- **Personalized Journey**: Tailor the tasks and challenge duration to your unique goals.
+- **Local Storage**: Your tasks and progress are safely stored locally, so you can access them offline.
 
-   ```bash
-   npm install
-   ```
+## 🛠 Tech Stack
 
-2. Start the app
+- **Expo**: Fast and easy way to build React Native apps. 🚀
+- **React Native**: For building native mobile apps. 📱
+- **React**: The front-end library for building interactive UIs. ⚛️
+- **Local Storage**: Store user data locally for offline access and persistence. 💾
 
-   ```bash
-    npx expo start
-   ```
+## Created and Developed by Sujay Pagam - 17 Jan 2025
 
-In the output, you'll find options to open the app in a
+All rights reserved.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🎯 Features to Look Forward To 🌱
 
-## Get a fresh project
+- **User Authentication** (in progress): Keep your data synced and personalized across devices.
+- **Task Sharing**: Share your daily challenges with friends and family.
+- **Push Notifications**: Get reminded about tasks to stay on track!
 
-When you're ready, run:
+## 🌍 Community
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo Documentation](https://docs.expo.dev/) - Learn more about Expo and React Native.
+- [React Documentation](https://reactjs.org/) - Dive deeper into React.
+- [React Native Documentation](https://reactnative.dev/) - Understand how React Native powers your app.
