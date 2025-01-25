@@ -5,6 +5,7 @@ import {
   Dimensions,
   Alert,
   TouchableOpacity,
+  StyleSheet,
 } from "react-native";
 import { PieChart } from "react-native-chart-kit";
 import { useTask } from "@/context/TaskContext";
