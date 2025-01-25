@@ -93,20 +93,26 @@ const DayDetail: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <AppGradient colors={["#1E1E1E", "#FFD700"]}>
+      <AppGradient colors={["#ffffff", "#ffffff"]}>
         <Text style={styles.header}>Day {day}: Get Ready!</Text>
         <Text style={styles.subHeader}>📝 Top Goals to Complete Today 📚</Text>
 
         <View style={styles.inputContainer}>
           <TextInput
-            placeholder="Enter a new task"
+            placeholder="Ex. Read 10 pages of a book"
             value={newTask}
             onChangeText={setNewTask}
             placeholderTextColor="#aaa"
             maxLength={50}
             style={styles.input}
           />
-          <TouchableOpacity style={styles.addButton} onPress={handleTask}>
+          <TouchableOpacity
+            style={[
+              styles.addButton,
+              editingId && styles.addButtonEditing, // Apply blue color if editing
+            ]}
+            onPress={handleTask}
+          >
             <Text style={styles.addButtonText}>
               {editingId ? "UPDATE" : "ADD"}
             </Text>
@@ -210,13 +216,13 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 22,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#000",
     textAlign: "center",
     marginVertical: 10,
   },
   subHeader: {
     fontSize: 16,
-    color: "#fff",
+    color: "#000",
     textAlign: "center",
     marginBottom: 20,
   },
@@ -234,13 +240,16 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   addButton: {
-    backgroundColor: "#FFD700",
+    backgroundColor: "#000", // Default for "ADD" button
     paddingVertical: 12,
     borderRadius: 8,
     alignItems: "center",
   },
+  addButtonEditing: {
+    backgroundColor: "#007BFF", // Blue for "UPDATE" button
+  },
   addButtonText: {
-    color: "#000",
+    color: "#fff",
     fontWeight: "bold",
     fontSize: 16,
   },
@@ -260,7 +269,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   taskCompletedContainer: {
-    backgroundColor: "#ffea5a",
+    backgroundColor: "#88e788",
   },
   checkbox: {
     marginRight: 10,
@@ -306,13 +315,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   closeButton: {
-    backgroundColor: "#ffea5a",
+    backgroundColor: "#000",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
   },
   closeButtonText: {
-    color: "#000",
+    color: "#fff",
     fontWeight: "bold",
     fontSize: 16,
   },

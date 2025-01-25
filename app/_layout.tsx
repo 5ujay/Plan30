@@ -10,7 +10,7 @@ const RootLayout = () => {
       <StatusBar
         translucent
         backgroundColor="transparent"
-        barStyle="light-content"
+        barStyle="dark-content"
       />
 
       <TaskContextProvider>

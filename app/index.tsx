@@ -5,18 +5,19 @@ import {
   TouchableOpacity,
   Animated,
   Easing,
+  Image,
 } from "react-native";
 import * as SplashScreen from "expo-splash-screen"; // Control splash screen
-import AppGradient from "@/components/AppGradient"; // Gradient wrapper
-import { router } from "expo-router";
+import { useRouter } from "expo-router"; // Updated router usage
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // Keep the splash screen visible until the app is ready
 SplashScreen.preventAutoHideAsync();
 
-const Index = () => {
+const Index: React.FC = () => {
   const [imageAnimation] = useState(new Animated.Value(0));
   const [isAppReady, setIsAppReady] = useState(false);
+  const router = useRouter();
 
   const handleGetStarted = async () => {
     const storedUsername = await AsyncStorage.getItem("username");
@@ -53,72 +54,119 @@ const Index = () => {
   }, [imageAnimation]);
 
   if (!isAppReady) {
-    // Return null to keep the splash screen visible
-    return null;
+    return null; // Keeps the splash screen visible until the app is ready
   }
 
   return (
-    <View className="flex-1">
-      {/* Gradient Background */}
-      <AppGradient colors={["#000000", "#FFD700"]}>
-        <View className="flex-1 justify-center items-center">
-          {/* Animated logo */}
-          <Animated.Image
-            source={require("@/assets/images/logo.png")}
-            style={{
-              width: 200,
-              height: 200,
-              opacity: imageAnimation,
-              transform: [
-                {
-                  scale: imageAnimation.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [0.5, 1],
-                  }),
-                },
-              ],
-            }}
-            resizeMode="contain"
-          />
+    <View style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 20,
+        }}
+      >
+        {/* Animated logo */}
+        <Animated.Image
+          source={require("@/assets/images/logo.png")}
+          style={{
+            width: 150,
+            height: 150,
+            opacity: imageAnimation,
+            transform: [
+              {
+                scale: imageAnimation.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0.5, 1],
+                }),
+              },
+            ],
+          }}
+          resizeMode="contain"
+        />
 
-          {/* Motivational heading */}
-          <Text className="text-white text-center text-3xl mt-10 font-bold">
-            Change Your Life in 30 Days
-          </Text>
-          <Text className="text-white text-center text-lg m-4 font-semibold">
-            Take on daily tasks, build positive habits, and become the best
-            version of yourself!✨
-          </Text>
+        {/* Motivational heading */}
+        <Text
+          style={{
+            color: "#000",
+            textAlign: "center",
+            fontSize: 28,
+            fontWeight: "bold",
+            marginTop: 20,
+          }}
+        >
+          Change Your Life in 30 Days
+        </Text>
+        <Text
+          style={{
+            color: "#555",
+            textAlign: "center",
+            fontSize: 16,
+            marginTop: 10,
+            fontWeight: "500",
+          }}
+        >
+          Take on daily tasks, build positive habits, and become the best
+          version of yourself! ✨
+        </Text>
 
-          {/* Key Points */}
-          <View className="mt-8 space-y-4">
-            <Text className="text-white text-lg text-center">
-              ✔️ Build lasting habits 📝
+        {/* Key Points */}
+        <View style={{ marginTop: 30 }}>
+          {[
+            "✔️ Build lasting habits 📝",
+            "✔️ Stay motivated every day 💥",
+            "✔️ Achieve your personal goals 🎯",
+          ].map((text, index) => (
+            <Text
+              key={index}
+              style={{
+                color: "#333",
+                fontSize: 16,
+                textAlign: "center",
+                marginVertical: 5,
+              }}
+            >
+              {text}
             </Text>
-            <Text className="text-white text-lg text-center">
-              ✔️ Stay motivated every day 💥
-            </Text>
-            <Text className="text-white text-lg text-center">
-              ✔️ Achieve your personal goals 🎯
-            </Text>
-          </View>
-
-          {/* Get Started Button */}
-          <TouchableOpacity
-            onPress={handleGetStarted}
-            className="bg-white py-3 px-6 mt-12 rounded-lg self-center"
-          >
-            <Text className="text-[#000] text-lg font-bold">
-              Get Started 🚀
-            </Text>
-          </TouchableOpacity>
-
-          {/* Motivational Footer */}
-          <Text className="text-black text-sm mt-12 text-center">
-            Every day is a new opportunity to improve and grow. 🌱
-          </Text>
+          ))}
         </View>
-      </AppGradient>
+
+        {/* Get Started Button */}
+        <TouchableOpacity
+          onPress={handleGetStarted}
+          style={{
+            backgroundColor: "#000",
+            paddingVertical: 12,
+            paddingHorizontal: 20,
+            borderRadius: 8,
+            marginTop: 40,
+          }}
+        >
+          <Text
+            style={{
+              color: "#FFF",
+              fontSize: 16,
+              fontWeight: "bold",
+            }}
+          >
+            Get Started 🚀
+          </Text>
+        </TouchableOpacity>
+
+        {/* Motivational Footer */}
+        <Text
+          style={{
+            color: "#888",
+            fontSize: 14,
+            textAlign: "center",
+            marginTop: 30,
+            fontStyle: "italic",
+          }}
+        >
+          Every day is a new opportunity to improve and grow. 🌱
+        </Text>
+      </View>
     </View>
   );
 };

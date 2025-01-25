@@ -55,16 +55,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 12,
-  },
+    borderWidth: 2, // Added border width
+    borderColor: "#000", // Black border color
+},
+
   text: {
     fontSize: 14,
     fontWeight: "bold",
   },
   green: {
-    backgroundColor: "#7fff00",
+    backgroundColor: "#88e788",
   },
   yellow: {
-    backgroundColor: "#FFEB3B",
+    backgroundColor: "#fff157",
   },
 });
 

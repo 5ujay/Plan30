@@ -26,17 +26,17 @@ const UserDetail = () => {
 
   return (
     <View className="flex-1">
-      <AppGradient colors={["#000000", "#FFD700"]}>
+      <AppGradient colors={["#ffffff", "#ffffff"]}>
         <View className="flex-1 justify-center items-center p-6">
           {/* Heading */}
-          <Text className="text-white text-2xl font-bold text-center mb-8 leading-7">
+          <Text className="text-black text-2xl font-bold text-center mb-8 leading-7">
             Welcome! Please Enter Your Username
           </Text>
 
           {/* Input Field */}
           <TextInput
             style={{ textAlign: "center" }}  // Text alignment handled via NativeWind
-            className="bg-white w-4/5 py-3 px-4 rounded-xl text-base shadow-md mb-6"
+            className="bg-white w-4/5 py-3 px-4 rounded-xl text-base shadow-md mb-6 border-[#ddd] border"
             placeholder="Username"
             placeholderTextColor="#8A8A8A"
             value={username}
@@ -47,9 +47,9 @@ const UserDetail = () => {
           {/* Enter Button */}
           <TouchableOpacity
             onPress={handleStart}
-            className="bg-white py-3 px-10 rounded-lg mt-5 shadow-lg"
+            className="bg-black py-3 px-10 rounded-lg mt-5 shadow-lg"
           >
-            <Text className="text-black text-lg font-bold">Enter</Text>
+            <Text className="text-white text-lg font-bold">Enter</Text>
           </TouchableOpacity>
 
           {/* Note about username */}

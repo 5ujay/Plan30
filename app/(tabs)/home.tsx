@@ -28,15 +28,15 @@ const Home: React.FC = () => {
   return (
     <View className="flex-1">
       {/* Golden-White Gradient */}
-      <AppGradient colors={["#000000", "#FFD700"]}>
+      <AppGradient colors={["#ffffff", "#ffffff"]}>
         {/* Header Section */}
         <View className="flex-row justify-between items-center p-6">
-          <Text className="text-white text-3xl font-bold">
+          <Text className="text-black text-3xl font-bold">
             {username ? `${username} 🎯` : "Welcome ✨"}
           </Text>
           <Pressable className="flex items-center" onPress={() => router.push("/chart")}>
-            <AntDesign name="piechart" size={24} color="#FFEB3B" />
-            <Text className="text-white font-semibold">Analysis</Text>
+            <AntDesign name="piechart" size={24} color="#000000" />
+            <Text className="text-black font-semibold">Analysis</Text>
           </Pressable>
         </View>
 
