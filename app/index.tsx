@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -5,19 +6,21 @@ import {
   Animated,
   Easing,
 } from "react-native";
-import React, { useState, useEffect } from "react";
-import AppGradient from "@/components/AppGradient";
+import * as SplashScreen from "expo-splash-screen"; // Control splash screen
+import AppGradient from "@/components/AppGradient"; // Gradient wrapper
 import { router } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// Add animation for the image
+// Keep the splash screen visible until the app is ready
+SplashScreen.preventAutoHideAsync();
+
 const Index = () => {
   const [imageAnimation] = useState(new Animated.Value(0));
+  const [isAppReady, setIsAppReady] = useState(false);
 
   const handleGetStarted = async () => {
     const storedUsername = await AsyncStorage.getItem("username");
     if (storedUsername) {
-      // If username exists, navigate directly to Home
       router.push("/home");
     } else {
       router.push("/userDetail");
@@ -25,7 +28,22 @@ const Index = () => {
   };
 
   useEffect(() => {
-    // Animation to make the image zoom in and fade in
+    const prepareApp = async () => {
+      try {
+        // Simulate resource loading
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setIsAppReady(true);
+        SplashScreen.hideAsync(); // Hide splash screen
+      }
+    };
+
+    prepareApp();
+  }, []);
+
+  useEffect(() => {
     Animated.timing(imageAnimation, {
       toValue: 1,
       duration: 2000,
@@ -34,11 +52,17 @@ const Index = () => {
     }).start();
   }, [imageAnimation]);
 
+  if (!isAppReady) {
+    // Return null to keep the splash screen visible
+    return null;
+  }
+
   return (
     <View className="flex-1">
+      {/* Gradient Background */}
       <AppGradient colors={["#000000", "#FFD700"]}>
         <View className="flex-1 justify-center items-center">
-          {/* Image with animation */}
+          {/* Animated logo */}
           <Animated.Image
             source={require("@/assets/images/logo.png")}
             style={{
@@ -57,7 +81,7 @@ const Index = () => {
             resizeMode="contain"
           />
 
-          {/* Motivational Heading */}
+          {/* Motivational heading */}
           <Text className="text-white text-center text-3xl mt-10 font-bold">
             Change Your Life in 30 Days
           </Text>

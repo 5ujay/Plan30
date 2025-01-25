@@ -5,7 +5,6 @@ import {
   Dimensions,
   Alert,
   TouchableOpacity,
-  StyleSheet,
 } from "react-native";
 import { PieChart } from "react-native-chart-kit";
 import { useTask } from "@/context/TaskContext";
@@ -44,15 +43,15 @@ const Dashboard: React.FC = () => {
         {
           name: "Completed",
           count: totalCompleted,
-          color: "#FFD700", // Gold
-          legendFontColor: "#FFD700",
+          color: "#7fff00", // Gold
+          legendFontColor: "#7fff00",
           legendFontSize: 15,
         },
         {
           name: "Remaining",
           count: totalRemaining,
-          color: "#000000", // Black
-          legendFontColor: "#FFFFFF",
+          color: "#FFD700", // Black
+          legendFontColor: "#FFD700",
           legendFontSize: 15,
         },
       ]
